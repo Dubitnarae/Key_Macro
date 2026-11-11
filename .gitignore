@@ -1,0 +1,12 @@
+# 참고용 다른 회사 프로그램 - 절대 커밋 금지
+벤치마킹/
+# 사용자 매크로 데이터
+매크로*.json
+# 빌드 산출물
+build/
+dist/
+*.exe
+*.spec
+__pycache__/
+*.tmp
+desktop.ini
