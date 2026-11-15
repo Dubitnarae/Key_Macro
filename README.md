@@ -9,4 +9,9 @@ Windows 용 키보드·마우스 매크로 프로그램. 개발자: KIM YEONGDO
 - F7: 마우스·색 입력 창에서 현재 위치와 색 가져오기
 - 매크로는 exe 옆 `매크로.json` 에 저장됩니다.
 
+## 개발
+
+- C# (WinForms). Windows 에 들어 있는 .NET Framework 4.x 컴파일러로 빌드하므로 따로 설치할 것이 없습니다.
+- 빌드: `build.ps1` (컴파일 후 자체 시험 `Key_Macro.exe --selftest`), 게시: `publish.ps1`
+
 변경 내용은 [CHANGELOG.md](CHANGELOG.md) 참고.

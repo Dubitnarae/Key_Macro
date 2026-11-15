@@ -1,8 +1,10 @@
-﻿# 릴리스 게시: version.py 버전 올리기 -> CHANGELOG 정리 -> 커밋·push -> 이 스크립트 실행
+﻿# 릴리스 게시: 버전 올리기(src\Program.cs) -> CHANGELOG 정리 -> 커밋·push -> 이 스크립트 실행
 # GitHub 릴리스에 Key_Macro.exe + .sha256을 올린다. 자동 업데이트가 이 두 파일을 받는다.
 $ErrorActionPreference = "Stop"
+Set-Location $PSScriptRoot
 & .\build.ps1
-$ver = (python -c "import version; print(version.__version__)").Trim()
+$v = [version](Get-Item dist\Key_Macro.exe).VersionInfo.FileVersion
+$ver = "$($v.Major).$($v.Minor).$($v.Build)"
 $hash = (Get-FileHash dist\Key_Macro.exe -Algorithm SHA256).Hash.ToLower()
 Set-Content -Encoding ascii dist\Key_Macro.exe.sha256 "$hash  Key_Macro.exe"
 # CHANGELOG의 해당 버전 섹션을 릴리스 설명으로 사용
